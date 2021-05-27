@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.atguigu.dao.TravelGroupDao">
+
+    <insert id="add" parameterType="travelGroup">
+        <selectKey keyProperty="id" resultType="int" order="AFTER">
+            select last_insert_id()
+        </selectKey>
+        insert into t_travelgroup(code,name,helpCode,sex,remark,attention)
+        values (#{code},#{name},#{helpCode},#{sex},#{remark},#{attention})
+    </insert>
+
+    <insert id="setCheckGroupAndCheckItem" parameterType="map">
+             insert into t_travelgroup_travelitem(travelgroup_id,travelitem_id) values (#{travelGroup},#{travelItem})
+    </insert>
+
+    <select id="findPage" parameterType="string" resultType="travelGroup">
+        select * from t_travelgroup
+        <where>
+            <if test="value!=null and value.length>0">
+                code=#{value} or name like "%"#{value}"%" or helpCode=#{value}
+            </if>
+        </where>
+    </select>
+
+    <select id="findById" resultType="travelGroup" parameterType="int">
+        select * from t_travelgroup
+        where id = #{id}
+    </select>
+
+    <update id="edit" parameterType="travelGroup">
+        update t_travelgroup
+        <set>
+            <if test=" code!=null and  code.length>0">
+                code=#{ code},
+            </if>
+            <if test=" name!=null and  name.length>0">
+                name=#{ name},
+            </if>
+            <if test=" helpCode!=null and  helpCode.length>0">
+                helpCode=#{ helpCode},
+            </if>
+            <if test=" sex!=null and  sex.length>0">
+                sex=#{ sex},
+            </if>
+            <if test=" remark!=null and  remark.length>0">
+                remark=#{ remark},
+            </if>
+            <if test=" attention!=null and  attention.length>0">
+                attention=#{ attention}
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteTravelGroupAndTravelItemByTravelGroupId" parameterType="int">
+         delete  from  t_travelgroup_travelitem  where travelgroup_id =#{id}
+    </delete>
+
+    <select id="findTravelItemIdByTravelgroupId" resultType="int">
+        select travelitem_id  from t_travelgroup_travelitem where travelgroup_id =#{id}
+    </select>
+
+    <select id="findTravelGroupListById" resultMap="findByIdResultMap" parameterType="int">
+        select  * from t_travelgroup where id
+        in (select travelgroup_id from t_setmeal_travelgroup where setmeal_id=#{id})
+    </select>
+
+    <select id="findAll" resultType="travelGroup">
+        select * from t_travelgroup
+    </select>
+
+    <resultMap id="findByIdResultMap" type="travelGroup">
+        <id property="id" column=" id"/>
+        <result property="code" column=" code"/>
+        <result property="name" column=" name"/>
+        <result property="helpCode" column=" helpCode"/>
+        <result property="sex" column=" sex"/>
+        <result property="remark" column=" remark"/>
+        <result property="attention" column=" attention"/>
+        <collection property="travelItems" column="id"
+                    select="com.atguigu.dao.TravelItemDao.findTravelItemListById">
+        </collection>
+    </resultMap>
+</mapper>

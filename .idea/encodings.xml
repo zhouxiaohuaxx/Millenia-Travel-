@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/meinian_common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/meinian_common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/meinian_dao/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/meinian_dao/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/meinian_interface/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/meinian_interface/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/meinian_jobs/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/meinian_jobs/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/meinian_mobile_web/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/meinian_mobile_web/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/meinian_pojo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/meinian_pojo/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/meinian_service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/meinian_service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/meinian_web/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/meinian_web/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

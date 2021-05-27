@@ -1,0 +1,6 @@
+com\atguigu\service\impl\TravelGroupServiceImpl.class
+com\atguigu\service\impl\MemberServiceImpl.class
+com\atguigu\service\impl\OrderServiceImpl.class
+com\atguigu\service\impl\TravelItemServiceImpl.class
+com\atguigu\service\impl\OrderSettingServiceImpl.class
+com\atguigu\service\impl\SetmealServiceImpl.class
