@@ -59,4 +59,6 @@
         <!-- 设定默认编码 -->
         <property name="defaultEncoding" value="UTF-8"/>
     </bean>
+
+    <import resource="spring-jedis.xml"></import>
 </beans>

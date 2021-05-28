@@ -13,4 +13,6 @@ public interface SetmealService {
 
 
     PageResult findPage(QueryPageBean queryPageBean);
+
+    void add(Setmeal setmeal, Integer[] travelgroupIds);
 }

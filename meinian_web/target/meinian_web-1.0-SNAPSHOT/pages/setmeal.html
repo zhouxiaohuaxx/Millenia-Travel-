@@ -259,7 +259,7 @@
         methods: {
             //文件上传成功后的钩子，response为服务端返回的值，file为当前上传的文件封装成的js对象
             handleAvatarSuccess(response, file) {
-                this.imageUrl = "http://q2t6dfukt.bkt.clouddn.com/" + response.data; // 用于显示
+                this.imageUrl = "http://qtslo7ibf.hn-bkt.clouddn.com/" + response.data; // 用于显示
                 this.$message({
                     message: response.message,
                     type: response.flag ? 'success' : 'error'
@@ -281,6 +281,20 @@
             },
             //添加
             handleAdd() {
+                axios.post("/setmeal/add.do?travelgroupIds=" + this.travelgroupIds, this.formData)
+                    .then((response) => {
+                        this.dialogFormVisible = false;
+                        if (response.data.flag) {
+                            this.$message({
+                                type: 'success',
+                                message: response.data.message
+                            })
+                        } else {
+                            this.$message.error(response.data.message)
+                        }
+                    }).finally(() => {
+                    this.findPage();
+                })
             },
             //分页查询
             findPage() {
@@ -314,9 +328,9 @@
                 this.resetForm();
                 axios.get("/travelgroup/findAll.do").then((response) => {
                     if (response.data.flag) {
-                        this.tableData = res.data.data;
+                        this.tableData = response.data.data;
                     } else {
-                        this.$message.error(res.data.message);
+                        this.$message.error(responser.data.message);
                     }
                 })
             },

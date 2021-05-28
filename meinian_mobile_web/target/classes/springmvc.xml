@@ -49,5 +49,5 @@
         check=true 启动时检查服务提供方，如果服务提供方没有启动则报错
     -->
     <dubbo:consumer timeout="600000" check="false"/>
-    <import resource="spring-jedis.xml"></import>
+
 </beans>

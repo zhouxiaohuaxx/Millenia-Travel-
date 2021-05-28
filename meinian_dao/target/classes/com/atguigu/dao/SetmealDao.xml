@@ -6,7 +6,7 @@
     <select id="findAll" resultType="setmeal">
         select  * from  t_setmeal
     </select>
-    
+
     <resultMap id="findByIdResultMap" type="setmeal">
         <id property="id" column="id"/>
         <result property="name" column="name"/>
@@ -22,6 +22,7 @@
                     select="com.atguigu.dao.TravelGroupDao.findTravelGroupListById">
         </collection>
     </resultMap>
+
     <select id="findById" resultMap="findByIdResultMap">
         select * from t_setmeal where id = #{id}
     </select>
@@ -36,4 +37,16 @@
         </where>
     </select>
 
+    <insert id="add" parameterType="setmeal">
+        <selectKey resultType="int" order="AFTER" keyProperty="id">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into t_setmeal( name, code, helpCode, sex, age, price, remark, attention, img)
+        values (#{name}, #{code},#{helpCode},#{sex}, #{age}, #{price}, #{remark}, #{attention},#{img})
+    </insert>
+
+    <insert id="setSetmealAndTravelGroup">
+        insert into   t_setmeal_travelgroup(setmeal_id,travelgroup_id)
+        values (#{setmealId},#{travelgroupId})
+    </insert>
 </mapper>

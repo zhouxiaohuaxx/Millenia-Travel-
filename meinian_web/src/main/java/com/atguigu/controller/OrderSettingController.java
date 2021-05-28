@@ -41,7 +41,7 @@ public class OrderSettingController {
             return new Result(true, MessageConstant.IMPORT_ORDERSETTING_SUCCESS);
         } catch (IOException e) {
             e.printStackTrace();
-            return new Result(true, MessageConstant.IMPORT_ORDERSETTING_FAIL);
+            return new Result(false, MessageConstant.IMPORT_ORDERSETTING_FAIL);
         }
     }
 
@@ -63,7 +63,7 @@ public class OrderSettingController {
             return new Result(true, MessageConstant.ORDERSETTING_SUCCESS);
         } catch (Exception e) {
             e.printStackTrace();
-            return new Result(true, MessageConstant.ORDERSETTING_FAIL);
+            return new Result(false, MessageConstant.ORDERSETTING_FAIL);
         }
 
     }

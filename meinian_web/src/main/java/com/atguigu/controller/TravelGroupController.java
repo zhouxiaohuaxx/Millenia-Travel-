@@ -61,7 +61,6 @@ public class TravelGroupController {
 
     @RequestMapping("/findAll")
     public Result findAll() {
-
         List<TravelGroup> travelGroupList = travelGroupService.findAll();
         if (travelGroupList!=null && travelGroupList.size()>0){
             return new Result(true, MessageConstant.QUERY_SETMEAL_SUCCESS, travelGroupList);

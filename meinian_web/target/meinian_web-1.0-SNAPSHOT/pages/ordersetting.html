@@ -222,7 +222,10 @@
                         type: 'success'
                     });
                 } else {
-                    this.$message.error(response.message);
+                    this.$message({
+                        message:response.message,
+                        type:'error'
+                    })
                 }
                 console.log(response, file, fileList);
             },
