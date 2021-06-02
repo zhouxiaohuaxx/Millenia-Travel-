@@ -60,4 +60,11 @@
         select * from t_travelitem  where id
             in (select travelitem_id from t_travelgroup_travelitem where travelgroup_id=#{id})
     </select>
+
+    <select id="findCountByTravelItemItemId" parameterType="int" resultType="long">
+        select count(*) from t_travelgroup_travelitem where travelitem_id =#{id}
+    </select>
+    <delete id="deleteById" parameterType="int">
+        delete  from t_travelitem where id = #{id}
+    </delete>
 </mapper>

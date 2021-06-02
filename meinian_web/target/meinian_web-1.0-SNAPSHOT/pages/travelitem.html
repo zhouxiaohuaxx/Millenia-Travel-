@@ -331,10 +331,23 @@
                     center: true
                 }).then(() => {
                     // 发送ajax请求，执行删除
-                    this.$message({
-                        type: 'success',
-                        message: '删除成功!'
-                    });
+                    axios.post("/travelItem/delete.do?id=" + row.id).then((response) => {
+                            if (response.data.flag) {
+                                //删除成功
+                                this.$message({
+                                    message: response.data.message,
+                                    type: 'success'
+                                });
+                                //调用分页，获取最新分页数据
+                                this.findPage();
+                            } else {
+                                //删除失败
+                                this.$message.error(response.data.message);
+                            }
+                        }
+                    )
+                }).catch((error)=>{
+                    this.showMessage(error);
                 }).catch(() => {
                     this.$message({
                         type: 'info',
@@ -342,7 +355,16 @@
                     });
                 });
 
-
+            },
+            showMessage(r){
+                if(r == 'Error: Request failed with status code 403'){
+                    //权限不足
+                    this.$message.error('无访问权限');
+                    return;
+                }else{
+                    this.$message.error('未知错误');
+                    return;
+                }
             }
         }
     })

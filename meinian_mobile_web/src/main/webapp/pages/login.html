@@ -73,6 +73,11 @@
                         if(!response.data.flag){
                             //验证码发送失败
                             this.$message.error('验证码发送失败，请检查手机号输入是否正确');
+                        }else {
+                            this.$message({
+                                message: response.data.message,
+                                type: 'success'
+                            });
                         }
                     });
                 },
@@ -84,8 +89,8 @@
                         return false;
                     }
                     axios.post("/login/check.do",this.loginInfo).then((response) => {
+                         console.log(response.data.flag)
                         if(response.data.flag){
-                            //登录成功,跳转到index.html
                             window.location.href="index.html";
                         }else{
                             //失败，提示失败信息

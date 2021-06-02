@@ -42,7 +42,7 @@
         <!--指定服务注册中心地址-->
         <dubbo:registry address="zookeeper://127.0.0.1:2181"/>
         <!--批量扫描-->
-        <dubbo:annotation package="com.atguigu.controller" />
+     <dubbo:annotation package="com.atguigu" />
     <!--
         超时全局设置 10分钟
         check=false 不检查服务提供方，开发阶段建议设置为false
@@ -59,6 +59,10 @@
         <!-- 设定默认编码 -->
         <property name="defaultEncoding" value="UTF-8"/>
     </bean>
+    <!--批量扫描-->
+
+    <import resource="classpath:spring-security.xml"></import>
 
     <import resource="spring-jedis.xml"></import>
+
 </beans>

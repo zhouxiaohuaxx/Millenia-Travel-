@@ -17,4 +17,6 @@ public interface SetmealDao {
     void add(Setmeal setmeal);
 
     void setSetmealAndTravelGroup(Map map);
+
+    List<Map<String, Object>> findSetmealCount();
 }

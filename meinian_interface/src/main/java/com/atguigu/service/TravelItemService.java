@@ -16,4 +16,5 @@ public interface TravelItemService {
 
     List<TravelItem> findAll();
 
+    void deleteById(Integer id);
 }

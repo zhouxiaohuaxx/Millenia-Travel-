@@ -1,4 +1,8 @@
-com\atguigu\controller\TravelGroupController.class
 com\atguigu\controller\TravelItemController.class
-com\atguigu\controller\SetmealController.class
+com\atguigu\controller\UserController.class
+com\atguigu\controller\ReportController.class
+com\atguigu\security\SpringSecurityUserService.class
 com\atguigu\controller\OrderSettingController.class
+com\atguigu\controller\TravelGroupController.class
+com\atguigu\controller\AddressController.class
+com\atguigu\controller\SetmealController.class

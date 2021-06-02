@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.dao.AddressDao">
+
+    <select id="findAll">
+     select * from t_address
+    </select>
+    <!--根据条件查询-->
+    <select id="selectByCondition" parameterType="string" resultType="address">
+        select * from t_address
+        <if test="value != null and value.length > 0">
+            where addressName = #{value}
+        </if>
+    </select>
+
+    <insert id="addAddress" parameterType="address">
+        insert into t_address(addressName,lng,lat)
+        values
+        (#{addressName},#{lng},#{lat})
+    </insert>
+
+    <delete id="deleteById" parameterType="int">
+        delete from t_address where id=#{id}
+    </delete>
+</mapper>

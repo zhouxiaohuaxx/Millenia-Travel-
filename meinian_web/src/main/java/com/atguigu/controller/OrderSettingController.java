@@ -24,6 +24,8 @@ import java.util.Map;
 @RestController
 @RequestMapping("/ordersetting")
 public class OrderSettingController {
+
+
     @Reference
     private OrderSettingService orderSettingService;
 
@@ -31,13 +33,21 @@ public class OrderSettingController {
     @RequestMapping("/upload")
     public Result upload(MultipartFile excelFile) {
         try {
+
             List<String[]> strings = POIUtils.readExcel(excelFile);
+
             List<OrderSetting> orderSettings = new ArrayList<>();
+
             for (String[] string : strings) {
+
                 OrderSetting orderSetting = new OrderSetting(new Date(string[0]), Integer.parseInt(string[1]));
+
                 orderSettings.add(orderSetting);
+
             }
+
             orderSettingService.add(orderSettings);
+
             return new Result(true, MessageConstant.IMPORT_ORDERSETTING_SUCCESS);
         } catch (IOException e) {
             e.printStackTrace();

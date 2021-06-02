@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- 页面meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>美年旅游</title>
+    <meta name="description" content="美年旅游">
+    <meta name="keywords" content="美年旅游">
+    <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="../plugins/elementui/index.css">
+    <link rel="stylesheet" href="../plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- 引入组件库 -->
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script src="../js/vue.js"></script>
+    <script src="../plugins/elementui/index.js"></script>
+    <script src="../js/axios-0.18.0.js"></script>
+    <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=1B7db771KoafrLuRGbqQQiKOtu64AWC2"></script>
+    <style>
+        .datatable {
+            position: relative;
+            box-sizing: border-box;
+            -webkit-box-flex: 1;
+            width: 100%;
+            max-width: 100%;
+            font-size: 14px;
+            color: rgb(96, 98, 102);
+            overflow: hidden;
+            flex: 1 1 0%;
+        }
+        .datatable td, .datatable th {
+            padding: 12px 0;
+            min-width: 0;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            text-overflow: ellipsis;
+            vertical-align: middle;
+            position: relative;
+            text-align: left;
+        }
+
+        #allmap{
+            height: 450px;
+            width: 100%;
+            overflow: hidden;
+            font-family: "微软雅黑";
+            border:1px solid green;
+        }
+
+        /*百度地图搜索框定位*/
+        .tangram-suggestion-main {
+            z-index: 999999;
+        }
+        /*设置弹出框样式*/
+        .el-dialog__body {
+            padding: 0px 20px;
+            color: #606266;
+            font-size: 14px;
+        }
+        /**/
+        /*.el-input--suffix .el-input__inner {
+            width: 450px;
+        }*/
+    </style>
+</head>
+<body class="hold-transition">
+<div id="app">
+    <div class="content-header">
+        <h1>首页<small>公司分布图</small></h1>
+        <el-breadcrumb separator-class="el-icon-arrow-right" class="breadcrumb">
+            <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+            <el-breadcrumb-item>公司分布图</el-breadcrumb-item>
+        </el-breadcrumb>
+    </div>
+    <div class="app-container">
+        <template>
+            <el-tabs v-model="activeName"  @tab-click="handleClick">
+                <el-tab-pane label="分布图" name="first">
+                    <iframe name="right" class="el-main" src="map.html" width="100%" height="580px" frameborder="0"></iframe>
+                </el-tab-pane>
+
+                <el-tab-pane label="详细信息" name="second">
+                    <div class="filter-container">
+                        <el-input placeholder="公司地址" v-model="pagination.queryString" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter"></el-input>
+                        <el-button @click="findPage()" class="dalfBut">查询</el-button>
+                        <el-button type="primary" class="butT" @click="handleCreate()">新建</el-button>
+                    </div>
+                    <el-table size="small" current-row-key="id" :data="dataList" stripe highlight-current-row>
+                        <el-table-column type="index" align="center" label="序号"></el-table-column>
+                        <el-table-column prop="addressName" label="公司地址" align="center"></el-table-column>
+
+                        <el-table-column prop="lng" label="所在经度" align="center"></el-table-column>
+                        <el-table-column prop="lat" label="所在纬度" align="center"></el-table-column>
+                        <el-table-column label="操作" align="center">
+                            <template slot-scope="scope">
+<!--                                <el-button type="primary" size="mini" @click="handleUpdate(scope.row)">编辑</el-button>-->
+                                <el-button size="mini" type="danger" @click="handleDelete(scope.row)">删除</el-button>
+                            </template>
+                        </el-table-column>
+                    </el-table>
+                    <div class="pagination-container">
+                        <el-pagination
+                                class="pagiantion"
+                                @current-change="handleCurrentChange"
+                                :current-page="pagination.currentPage"
+                                :page-size="pagination.pageSize"
+                                layout="total, prev, pager, next, jumper"
+                                :total="pagination.total">
+                        </el-pagination>
+                    </div>
+                    <!-- 新增标签弹层 -->
+                    <div class="add-form">
+                        <el-dialog title="新增地址" :visible.sync="dialogFormVisible" @opened="createMap">
+
+                            <div class="filter-container">
+                                <el-input id="suggestId" name="address_detail" placeholder="请输入要查询的地址" v-model="address_detail"  style="width: 400px;"></el-input>
+                                <el-button type="primary" @click="handleAdd()" class="butT">确定添加</el-button>
+                            </div>
+                            <!--                            地址：<input type="text" id="suggestId" name="address_detail" placeholder="请输入要查询的地址" v-model="address_detail" class="input_style">-->
+                            <div id="allmap"></div>
+<!--                            <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>-->
+                        </el-dialog>
+                    </div>
+                </el-tab-pane>
+            </el-tabs>
+        </template>
+    </div>
+</div>
+</body>
+
+<script>
+    var vue = new Vue({
+        el: '#app',
+        data:{
+            activeName:'first',//添加/编辑窗口Tab标签名称
+            pagination: {//分页相关属性
+                currentPage: 1,
+                pageSize:10,
+                total:100,
+                queryString:null,
+            },
+            dataList: [],//列表数据
+            formData: {},//表单数据
+            tableData:[],//新增和编辑表单中对应的检查项列表数据
+            dialogFormVisible: false,//控制添加窗口显示/隐藏
+            dialogFormVisible4Edit:false,//控制编辑窗口显示/隐藏
+            address_detail:'', //详细地址
+            userlocation: {lng: "", lat: ""}
+        },
+        mounted () {
+        },
+        created() {
+
+        },
+        methods: {
+            createMap(){
+                this.$nextTick(function () {
+                    var th = this
+                    // 创建Map实例
+                    var map = new BMap.Map("allmap");
+                    map.enableScrollWheelZoom();
+                    // var point = new BMap.Point("武汉市");
+                    map.centerAndZoom("深圳市",11);
+
+                    // 初始化地图,设置中心点坐标，
+                    /*var geolocation = new BMap.Geolocation();
+                    geolocation.getCurrentPosition(function(r){
+                        if(this.getStatus() == BMAP_STATUS_SUCCESS){
+                            var mk = new BMap.Marker(r.point);
+                            // map.addOverlay(mk);
+                            map.panTo(r.point);
+                            // 初始化地图,设置城市和地图级别。
+                            map.centerAndZoom(r.point,12);
+                            // alert('您的位置：'+r.point.lng+','+r.point.lat);
+                        }
+                        else {
+                            // alert('failed'+this.getStatus());
+                        }
+                    });*/
+                    //建立一个自动完成的对象
+                    var ac = new BMap.Autocomplete({"input": "suggestId", "location": map})
+
+                    var myValue;
+                    ac.addEventListener("onconfirm", function (e) {    //鼠标点击下拉列表后的事件
+                        console.log(e)
+                        // alert(e.item.value)
+                        var _value = e.item.value;
+                        myValue = _value.province + _value.city + _value.district + _value.street + _value.business;
+                        th.address_detail = myValue;
+                        // G("searchResultPanel").innerHTML ="onconfirm<br />index = " + e.item.index + "<br />myValue = " + myValue;
+                        setPlace();
+                    });
+
+                    function setPlace() {
+                        map.clearOverlays();    //清除地图上所有覆盖物
+                        function myFun() {
+                            th.userlocation = local.getResults().getPoi(0).point;    //获取第一个智能搜索的结果
+                            map.centerAndZoom(th.userlocation, 15);
+                            map.addOverlay(new BMap.Marker(th.userlocation));    //添加标注
+                        }
+
+                        var local = new BMap.LocalSearch(map, { //智能搜索
+                            onSearchComplete: myFun
+                        });
+                        local.search(myValue);
+                    }
+
+                    // 百度地图API功能
+                    function G(id) {
+                        return document.getElementById(id);
+                    }
+
+                })
+            },
+            //分页查询
+            findPage() {
+
+                var param={
+                    currentPage: this.pagination.currentPage,
+                    pageSize: this.pagination.pageSize,
+                    queryString: this.pagination.queryString
+                }
+                axios.post("/address/findPage.do",param).then((res)=>{
+                    this.dataList=res.data.rows;
+                    this.pagination.total=res.data.total;
+                });
+            },
+            // 重置表单
+            resetForm() {
+                this.formData={};
+            },
+            // 弹出添加窗口
+            handleCreate() {
+                this.dialogFormVisible=true;
+                this.address_detail=null;
+                this.userlocation=[];
+            },
+            // 弹出编辑窗口
+            handleUpdate(row) {
+
+            },
+            //切换页码
+            handleCurrentChange(currentPage) {
+                this.pagination.currentPage=currentPage;
+                this.findPage();
+            },
+            // 删除
+            handleDelete(row) {
+                this.$confirm("数据删除后将无法回复，请确认是否删除?","提示",{
+                    type: 'warning'
+                }).then(()=>{
+                    axios.post("/address/deleteById.do?id="+row.id).then((res)=>{
+                        this.$message({
+                            type:'success',
+                            message:res.data.message
+                        });
+                        this.findPage();
+                    });
+                }).catch(()=>{
+                    this.$message({
+                        type:'info',
+                        message:'操作已取消'
+                    })
+                });
+            },
+            handleAdd(){
+                /*address_detail: null, //详细地址
+                userlocation: {lng: "", lat: ""}*/
+                console.log(this.address_detail);
+                console.log(this.userlocation);
+
+                var param={
+                    addressName:this.address_detail,
+                    lng:this.userlocation.lng,
+                    lat:this.userlocation.lat
+                }
+                axios.post("/address/addAddress.do",param).then((res)=>{
+                    this.$message({
+                        type:'success',
+                        message:res.data.message
+                    });
+                    this.dialogFormVisible=false;
+                    this.findPage();
+                });
+            },
+            handleClick(tab, event) {
+                if(tab.index==1){
+                    this.findPage();
+                }
+                // console.log(tab, event);
+            }
+        }
+    });
+</script>
+</html>

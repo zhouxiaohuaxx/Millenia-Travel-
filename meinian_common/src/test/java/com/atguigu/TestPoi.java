@@ -11,12 +11,24 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.junit.Test;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
 
 
 public class TestPoi {
+
+    @Test
+    public  void testEncotypePassword(){
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        String encode = encoder.encode("123");
+        System.out.println("encode = " + encode);
+
+        boolean matches = encoder.matches("123", "$2a$10$.llVA3G24aiSxF/b.tqWvuUbCDImOWuvO6bxwd.dRRTumUUldj8Ti");
+        System.out.println("matches = " + matches);
+
+    }
 
     //导出
     @Test

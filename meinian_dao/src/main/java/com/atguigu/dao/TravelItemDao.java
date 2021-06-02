@@ -17,4 +17,8 @@ public interface TravelItemDao {
     List<TravelItem> findAll();
 
     List<TravelItem> findTravelItemListById(Integer id);
+
+    long findCountByTravelItemItemId(Integer id);
+
+    void deleteById(Integer id);
 }

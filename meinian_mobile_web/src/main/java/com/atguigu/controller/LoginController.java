@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import redis.clients.jedis.JedisPool;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
@@ -27,32 +28,32 @@ public class LoginController {
     @Reference
     private MemberService memberService;
 
-
     @Autowired
     private JedisPool jedisPool;
 
     @RequestMapping("/check")
-    public Result check(@RequestBody Map map, HttpServletResponse response){
+    public Result check(@RequestBody Map map, HttpServletResponse response) {
+
         String telephone = (String) map.get("telephone");
         String validateCode = (String) map.get("validateCode");
+
         String codeInRedis = jedisPool.getResource().get(telephone + RedisMessageConstant.SENDTYPE_LOGIN);
-        if (codeInRedis!=validateCode||codeInRedis==null){
-            return  new Result(false, MessageConstant.VALIDATECODE_ERROR);
+
+        if (!codeInRedis.equals(validateCode) || codeInRedis == null) {
+            return new Result(false, MessageConstant.VALIDATECODE_ERROR);
         } else {
-         Member member= memberService.findByTelephone(telephone);
-         if (member==null){
-             Member member1 = new Member();
-             member1.setPhoneNumber(telephone);
-             member1.setRegTime(new Date());
-             memberService.add(member);
-         }
-            Cookie cookie = new Cookie("login_member_telphone",telephone);
+            Member member = memberService.findByTelephone(telephone);
+            if (member == null) {
+                member = new Member();
+                member.setPhoneNumber(telephone);
+                member.setRegTime(new Date());
+                memberService.add(member);
+            }
+            Cookie cookie = new Cookie("login_member_telphone", telephone);
             cookie.setPath("/");
-            cookie.setMaxAge(60*60*24*30);
+            cookie.setMaxAge(60 * 60 * 24 * 30);
             response.addCookie(cookie);
-            return  new Result(true, MessageConstant.LOGIN_SUCCESS);
+            return new Result(true, MessageConstant.LOGIN_SUCCESS);
         }
     }
-
-
 }

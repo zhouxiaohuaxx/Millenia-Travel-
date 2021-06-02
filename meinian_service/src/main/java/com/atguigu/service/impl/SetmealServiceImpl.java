@@ -31,6 +31,7 @@ public class SetmealServiceImpl implements SetmealService {
     private JedisPool jedisPool;
 
 
+
     @Override
     public List<Setmeal> findAll() {
         List<Setmeal> list = setmealDao.findAll();
@@ -60,6 +61,11 @@ public class SetmealServiceImpl implements SetmealService {
             setSetmealAndTravelGroup(setmeal.getId(), travelgroupIds);
         }
 
+    }
+
+    @Override
+    public List<Map<String, Object>> findSetmealCount() {
+        return setmealDao.findSetmealCount();
     }
 
     private void setSetmealAndTravelGroup(Integer id, Integer[] travelgroupIds) {

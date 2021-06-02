@@ -3,6 +3,7 @@ com\atguigu\pojo\Order.class
 com\atguigu\entity\PageResult.class
 com\atguigu\entity\Result.class
 com\atguigu\pojo\Setmeal.class
+com\atguigu\pojo\Address.class
 com\atguigu\pojo\Permission.class
 com\atguigu\pojo\TravelGroup.class
 com\atguigu\pojo\OrderSetting.class

@@ -20,4 +20,11 @@
         select * from t_ordersetting  where orderDate between #{dateBegin} and #{dateEnd}
     </select>
 
+    <select id="findByOrderDate" resultType="orderSetting" parameterType="date">
+        select * from t_ordersetting where orderDate = #{orderDate}
+    </select>
+
+    <update id="editReservationsByOrderDate" parameterType="orderSetting">
+        update t_ordersetting set reservations = #{reservations} where orderDate=#{orderDate}
+    </update>
 </mapper>

@@ -49,4 +49,10 @@
         insert into   t_setmeal_travelgroup(setmeal_id,travelgroup_id)
         values (#{setmealId},#{travelgroupId})
     </insert>
+
+    <select id="findSetmealCount" resultType="map">
+    select s.name name,count(o.id) value
+      from t_setmeal s,t_order o where s.id = o.setmeal_id
+    group BY s.name
+</select>
 </mapper>

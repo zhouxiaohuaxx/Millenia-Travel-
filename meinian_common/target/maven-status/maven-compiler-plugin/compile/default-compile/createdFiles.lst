@@ -1,3 +1,4 @@
+com\atguigu\utils\DateUtils.class
 com\atguigu\utils\POIUtils.class
 com\atguigu\utils\QiniuUtils.class
 com\atguigu\constant\MessageConstant.class

@@ -23,11 +23,11 @@ public class QiNiu {
 //...其他参数参考类注释
         UploadManager uploadManager = new UploadManager(cfg);
 //...生成上传凭证，然后准备上传
-        String accessKey = "dzpXBDSa3musX6U7Nq8v0fzv921stt-NnRLGhACK";
-        String secretKey = "AB90WSgUo32gY87jOyOW2zVH97fz9wT9JWCpKEm-";
-        String bucket = "java0223";
+        String accessKey = "MmtswifgMGKp84KOLlHnaDQv1NYDuQfe6mUaeBPl";
+        String secretKey = "IlYEwJk3KQl_ZnvjxQeXIE1Tvi8LDy9IigOIXlX9";
+        String bucket = "lijunhaolvoe";
 //如果是Windows情况下，格式是 D:\\qiniu\\test.png
-        String localFilePath = "F:\\迅雷下载\\卡莎.jpg";
+        String localFilePath = "F:\\迅雷下载\\1810heabbwufork.jpg";
 //默认不指定key的情况下，以文件内容的hash值作为文件名
         String key = null;
         Auth auth = Auth.create(accessKey, secretKey);

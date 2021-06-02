@@ -37,14 +37,14 @@
                         <el-dropdown class="avatar-container right-menu-item" trigger="click">
                             <div class="avatar-wrapper">
                                 <img src="../img/user2-160x160.jpg" class="user-avatar">
-                                尚硅谷
+                                {{username}}
                             </div>
                             <el-dropdown-menu slot="dropdown">
                                 <el-dropdown-item divided>
                                     <span style="display:block;">修改密码</span>
                                 </el-dropdown-item>
                                 <el-dropdown-item divided>
-                                        <span style="display:block;"><a href="">退出</a></span>
+                                        <span style="display:block;"><a href="/logout.do">退出</a></span>
                                     </el-dropdown-item>
                             </el-dropdown-menu>
                         </el-dropdown>
@@ -147,7 +147,8 @@
                     "path": "5",     //菜单项所对应的路由路径
                     "title": "信息系统",     //菜单项名称
                     "icon":"fa-heartbeat",
-                    "children":[//是否有子菜单，若没有，则为[]
+                    "children":[
+                        //是否有子菜单，若没有，则为[]
                         {
                             "path": "/5-1",
                             "title": "注册会员按月份数量统计",
@@ -174,7 +175,13 @@
 		 //发送请求获取当前登录用户的用户名
 		created:function () {
             //发送请求获取当前登录用户的用户名
-            
+            axios.post("/user/getUsername.do").then((response)=>{
+                if (response.data.flag){
+                    this.username=response.data.data;
+                }
+            }).catch((error)=>{
+                this.$message.error("获取用户名失败")
+            })
         }
     });
     $(function() {
