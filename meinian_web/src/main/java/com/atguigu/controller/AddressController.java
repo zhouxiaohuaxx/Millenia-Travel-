@@ -38,7 +38,7 @@ public class AddressController {
 
         for (Address address : addressList) {
             Map gridnMap = new HashMap();
-            gridnMap.put("lng", address.getIng());
+            gridnMap.put("lng", address.getLng());
             gridnMap.put("lat", address.getLat());
             gridnMaps.add(gridnMap);
             Map nameMap = new HashMap();
@@ -52,6 +52,8 @@ public class AddressController {
         map.put("nameMaps", nameMaps);
         return map;
     }
+
+
     @RequestMapping("/findPage")
     public PageResult findPage(@RequestBody QueryPageBean queryPageBean){
         PageResult pageResult=null;

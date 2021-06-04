@@ -9,7 +9,7 @@
 		#l-map{height:80%;width:100%;}
 		#r-result{width:100%; font-size:14px;line-height:20px;}
 	</style>
-	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=1B7db771KoafrLuRGbqQQiKOtu64AWC2"></script>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=CnnLZS0wyyx671R6mZ4jamtw5TuLD5Vr"></script>
 	<script src="../js/jquery.min.js"></script>
 </head>
 <body onload="init()">
@@ -59,6 +59,7 @@
 			async: false,
 			contentType:"application/json;charset=utf-8",
 			success: function (data) {
+				console.log(data)
 				for(var x=0;x<data.gridnMaps.length;x++){
 					adds.push(new BMap.Point(data.gridnMaps[x].lng,data.gridnMaps[x].lat));
 					addNames.push(data.nameMaps[x].addressName);

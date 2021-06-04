@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="study-springboot" />
         <module name="meinian_mobile_web" />
         <module name="meinian_dao" />
         <module name="meinian_interface" />
@@ -16,5 +17,9 @@
         <module name="meinian_pojo" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="projectstudy-project" target="1.8" />
+      <module name="stydy-spring" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

@@ -6,11 +6,17 @@
     <file type="web" url="file://$PROJECT_DIR$/meinian_mobile_web" />
     <file type="web" url="file://$PROJECT_DIR$/meinian_service" />
     <file type="web" url="file://$PROJECT_DIR$/meinian_web" />
+    <file type="web" url="file://$PROJECT_DIR$/../study-spring/study-springboot" />
+  </component>
+  <component name="JavaScriptSettings">
+    <option name="languageLevel" value="ES6" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="E:/projectstudy-project/pom.xml" />
+        <option value="$PROJECT_DIR$/../study-spring/pom.xml" />
       </list>
     </option>
   </component>

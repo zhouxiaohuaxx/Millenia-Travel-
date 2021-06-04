@@ -1,0 +1,46 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/target/atcrowdfunding02-admin-webui-1.0-SNAPSHOT/WEB-INF/lib/slf4j-api-1.7.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/target/atcrowdfunding02-admin-webui-1.0-SNAPSHOT/WEB-INF/lib/spring-test-4.3.20.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/target/atcrowdfunding02-admin-webui-1.0-SNAPSHOT/WEB-INF/lib/atcrowdfunding04-admin-entity-1.0-SNAPSHOT.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/target/atcrowdfunding02-admin-webui-1.0-SNAPSHOT/WEB-INF/lib/spring-beans-4.3.20.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/target/atcrowdfunding02-admin-webui-1.0-SNAPSHOT/WEB-INF/lib/jackson-annotations-2.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/target/atcrowdfunding02-admin-webui-1.0-SNAPSHOT/WEB-INF/lib/pagehelper-4.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/target/atcrowdfunding02-admin-webui-1.0-SNAPSHOT/WEB-INF/lib/jstl-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/target/atcrowdfunding02-admin-webui-1.0-SNAPSHOT/WEB-INF/lib/spring-security-web-4.2.10.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/target/atcrowdfunding02-admin-webui-1.0-SNAPSHOT/WEB-INF/lib/spring-web-4.3.20.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/target/atcrowdfunding02-admin-webui-1.0-SNAPSHOT/WEB-INF/lib/asm-3.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/target/atcrowdfunding02-admin-webui-1.0-SNAPSHOT/WEB-INF/lib/cglib-2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/target/atcrowdfunding02-admin-webui-1.0-SNAPSHOT/WEB-INF/lib/spring-security-core-4.2.10.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/target/atcrowdfunding02-admin-webui-1.0-SNAPSHOT/WEB-INF/lib/spring-webmvc-4.3.20.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/target/atcrowdfunding02-admin-webui-1.0-SNAPSHOT/WEB-INF/lib/spring-context-4.3.20.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/target/atcrowdfunding02-admin-webui-1.0-SNAPSHOT/WEB-INF/lib/mybatis-3.2.8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/target/atcrowdfunding02-admin-webui-1.0-SNAPSHOT/WEB-INF/lib/logback-core-1.2.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/target/atcrowdfunding02-admin-webui-1.0-SNAPSHOT/WEB-INF/lib/spring-core-4.3.20.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/target/atcrowdfunding02-admin-webui-1.0-SNAPSHOT/WEB-INF/lib/jackson-core-2.9.8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/target/atcrowdfunding02-admin-webui-1.0-SNAPSHOT/WEB-INF/lib/gson-2.8.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/target/atcrowdfunding02-admin-webui-1.0-SNAPSHOT/WEB-INF/lib/mysql-connector-java-5.1.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/target/atcrowdfunding02-admin-webui-1.0-SNAPSHOT/WEB-INF/lib/logback-classic-1.2.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/target/atcrowdfunding02-admin-webui-1.0-SNAPSHOT/WEB-INF/lib/spring-tx-4.3.20.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/target/atcrowdfunding02-admin-webui-1.0-SNAPSHOT/WEB-INF/lib/atcrowdfunding05-common-util-1.0-SNAPSHOT.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/target/atcrowdfunding02-admin-webui-1.0-SNAPSHOT/WEB-INF/lib/druid-1.0.31.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/target/atcrowdfunding02-admin-webui-1.0-SNAPSHOT/WEB-INF/lib/jackson-databind-2.9.8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/target/atcrowdfunding02-admin-webui-1.0-SNAPSHOT/WEB-INF/lib/spring-security-acl-4.2.10.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/target/atcrowdfunding02-admin-webui-1.0-SNAPSHOT/WEB-INF/lib/spring-security-taglibs-4.2.10.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/target/atcrowdfunding02-admin-webui-1.0-SNAPSHOT/WEB-INF/lib/aspectjweaver-1.9.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/target/atcrowdfunding02-admin-webui-1.0-SNAPSHOT/WEB-INF/lib/mybatis-spring-1.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/target/atcrowdfunding02-admin-webui-1.0-SNAPSHOT/WEB-INF/lib/jsqlparser-0.9.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/target/atcrowdfunding02-admin-webui-1.0-SNAPSHOT/WEB-INF/lib/aopalliance-1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/target/atcrowdfunding02-admin-webui-1.0-SNAPSHOT/WEB-INF/lib/spring-jdbc-4.3.20.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/target/atcrowdfunding02-admin-webui-1.0-SNAPSHOT/WEB-INF/lib/spring-orm-4.3.20.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/target/atcrowdfunding02-admin-webui-1.0-SNAPSHOT/WEB-INF/lib/atcrowdfunding03-admin-component-1.0-SNAPSHOT.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/target/atcrowdfunding02-admin-webui-1.0-SNAPSHOT/WEB-INF/lib/jcl-over-slf4j-1.7.25.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/target/atcrowdfunding02-admin-webui-1.0-SNAPSHOT/WEB-INF/lib/spring-aop-4.3.20.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/target/atcrowdfunding02-admin-webui-1.0-SNAPSHOT/WEB-INF/lib/spring-expression-4.3.20.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/target/atcrowdfunding02-admin-webui-1.0-SNAPSHOT/WEB-INF/lib/spring-security-config-4.2.10.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -264,6 +264,7 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+
     <build>
         <plugins>
             <!-- java编译插件 -->

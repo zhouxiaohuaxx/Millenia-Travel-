@@ -15,6 +15,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 
 public class TestPoi {
@@ -28,6 +31,28 @@ public class TestPoi {
         boolean matches = encoder.matches("123", "$2a$10$.llVA3G24aiSxF/b.tqWvuUbCDImOWuvO6bxwd.dRRTumUUldj8Ti");
         System.out.println("matches = " + matches);
 
+    }
+
+    @Test
+    public  void testCalendar(){
+        Calendar calendar = Calendar.getInstance();
+        Date time = calendar.getTime();
+        System.out.println("time = " + time);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String format = sdf.format(time);
+        System.out.println("format = " + format);
+        int i = calendar.get(Calendar.MONTH); //美国的月份是从0开始的，11月是他们的一年当中的最后一个月份
+        System.out.println("i = " + i);
+        int i1 = calendar.get(Calendar.DATE);//当前月份的第几天
+        System.out.println("i1 = " + i1);
+        int i2 = calendar.get(Calendar.DAY_OF_WEEK);//
+        System.out.println("i2 = " + i2);
+        int i3 = calendar.get(Calendar.DAY_OF_MONTH);//当前月份的第几天
+        System.out.println("i3 = " + i3);
+        int i4 = calendar.get(Calendar.DAY_OF_YEAR);//今年的第几天
+        System.out.println("i4 = " + i4);
+        int i5 = calendar.get(Calendar.DAY_OF_WEEK_IN_MONTH);
+        System.out.println("i5 = " + i5);
     }
 
     //导出

@@ -2,6 +2,8 @@ com\atguigu\service\TravelGroupService.class
 com\atguigu\service\ReportService.class
 com\atguigu\service\UserService.class
 com\atguigu\service\SetmealService.class
+com\atguigu\service\OrderService.class
 com\atguigu\service\TravelItemService.class
+com\atguigu\service\MemberService.class
 com\atguigu\service\OrderSettingService.class
 com\atguigu\service\AddressService.class

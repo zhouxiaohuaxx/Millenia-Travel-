@@ -13,6 +13,7 @@ import com.atguigu.pojo.Member;
 import com.atguigu.service.AddressService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -42,8 +43,11 @@ public class AddressServiceImpl implements AddressService {
 
     @Override
     public PageResult findPage(QueryPageBean queryPageBean) {
+
         PageHelper.startPage(queryPageBean.getCurrentPage(), queryPageBean.getPageSize());
+
         Page<Member> page = addressDao.selectByCondition(queryPageBean.getQueryString());
+
         return new PageResult(page.getTotal(), page.getResult());
     }
 }

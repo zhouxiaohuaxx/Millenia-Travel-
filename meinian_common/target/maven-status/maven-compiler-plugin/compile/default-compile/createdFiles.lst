@@ -1,6 +1,7 @@
 com\atguigu\utils\DateUtils.class
 com\atguigu\utils\POIUtils.class
 com\atguigu\utils\QiniuUtils.class
+com\atguigu\constant\RedisConstant.class
 com\atguigu\constant\MessageConstant.class
 com\atguigu\constant\RedisMessageConstant.class
 com\atguigu\utils\ValidateCodeUtils.class

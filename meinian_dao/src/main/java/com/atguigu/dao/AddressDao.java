@@ -10,8 +10,6 @@ import java.util.List;
 public interface AddressDao {
     List<Address> findAll();
 
-    PageResult findPage(String queryString);
-
     void addAddress(Address address);
 
     void deleteById(Integer id);

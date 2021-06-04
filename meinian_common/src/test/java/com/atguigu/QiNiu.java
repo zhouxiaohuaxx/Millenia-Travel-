@@ -27,7 +27,7 @@ public class QiNiu {
         String secretKey = "IlYEwJk3KQl_ZnvjxQeXIE1Tvi8LDy9IigOIXlX9";
         String bucket = "lijunhaolvoe";
 //如果是Windows情况下，格式是 D:\\qiniu\\test.png
-        String localFilePath = "F:\\迅雷下载\\1810heabbwufork.jpg";
+        String localFilePath = "F:\\迅雷下载\\1.jpg";
 //默认不指定key的情况下，以文件内容的hash值作为文件名
         String key = null;
         Auth auth = Auth.create(accessKey, secretKey);

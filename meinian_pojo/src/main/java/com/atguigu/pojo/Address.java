@@ -4,10 +4,12 @@ package com.atguigu.pojo;/*
  \* Description: 
 */
 
-public class Address {
+import java.io.Serializable;
+
+public class Address implements Serializable {
     private Integer id;
     private String addressName;
-    private String ing;
+    private String lng;
     private String lat;
 
     public Integer getId() {
@@ -26,12 +28,12 @@ public class Address {
         this.addressName = addressName;
     }
 
-    public String getIng() {
-        return ing;
+    public String getLng() {
+        return lng;
     }
 
-    public void setIng(String ing) {
-        this.ing = ing;
+    public void setLng(String lng) {
+        this.lng = lng;
     }
 
     public String getLat() {
